@@ -6,5 +6,5 @@ const app = express();
 routes(app);
 
 app.listen(3000, () => {
-    console.log("Servidor escutando...");
+  console.log("Servidor escutando...");
 });
