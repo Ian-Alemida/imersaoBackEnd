@@ -1,10 +1,12 @@
 import express from "express";
-import { listarPosts } from "../controllers/postsController.js";
+import { listarPosts, PostarNovoPost } from "../controllers/postsController.js";
 
-const routes = (app) => {
-    app.use(express.json());
-    
-    app.get("/posts", listarPosts);
+function routes(app) {
+  app.use(express.json());
+
+  app.get("/posts", listarPosts);
+
+  app.post("/posts", PostarNovoPost);
 }
 
 export default routes;
