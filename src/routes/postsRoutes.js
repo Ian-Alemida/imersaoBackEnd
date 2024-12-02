@@ -5,6 +5,7 @@ import {
   postarNovoPost,
   uploadImagem,
   atualizarNovoPost,
+  apagarPost,
 } from "../controllers/postsController.js"; // Importa as funções controladoras para lidar com a lógica dos posts
 import cors from "cors";
 
@@ -43,6 +44,8 @@ const routes = (app) => {
   app.post("/upload", upload.single("imagem"), uploadImagem);
 
   app.put("/upload/:id", atualizarNovoPost);
+
+  app.delete("/posts/:id", apagarPost);
 };
 
 export default routes;

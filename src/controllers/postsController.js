@@ -2,6 +2,7 @@ import {
   getTodosPosts,
   criarPost,
   atualizarPost,
+  excluirPost,
 } from "../models/postsModel.js";
 import fs from "fs";
 import gerarDescricaoComGemini from "../services/geminiService.js";
@@ -60,5 +61,15 @@ export async function atualizarNovoPost(req, res) {
   } catch (erro) {
     console.error(erro.message);
     res.status(500).json({ Erro: "Falha na requisição" });
+  }
+}
+export async function apagarPost(req, res) {
+  const id = req.params.id;
+  try {
+    excluirPost(id);
+    res.status(200).json(`Post com id '${id}' foi deletado com sucesso$`);
+  } catch (erro) {
+    console.error(erro.message);
+    res.status(500).json({ Erro: erro.message });
   }
 }
