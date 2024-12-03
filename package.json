@@ -24,8 +24,9 @@
   },
   "contributors": [],
   "scripts": {
-    "dev": "node --watch --env-file=.env server.js",
-    "test": ""
+    "build": "npx tsc",
+    "start": "node --watch --env-file=.env dist/server.js",
+    "dev": "npm run build && npm start"
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
@@ -38,7 +39,6 @@
   "devDependencies": {
     "@types/express": "^5.0.0",
     "@types/node": "^22.10.1",
-    "ts-node": "^10.9.2",
     "typescript": "^5.7.2"
   }
 }
